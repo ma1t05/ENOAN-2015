@@ -1,0 +1,52 @@
+% A model for the Stochastic Queue p-Median Problem
+% Created by Luis Maltos & Roger Rios
+% 2015
+
+\subsection{SQp-Median model}
+  
+\begin{frame}
+  This model was developed due to the poor performance of the previous model.
+  under the assumption that the probability of being served by the $\ell$th 
+  adjuster is almos zero, when $\ell$ is large enough but less than $p$.
+  \begin{itemize}
+  \item $M$ is a large integer.
+  \item $\ell$ the number of response units of importance
+  \item $a_{ik}$ kth location server regarding the node $i$
+  \item $x_j$ the number of adjusters in node $j$
+  \item $y_{ij}^k$ if the facility j, is the k-th to cover the node $i$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+  The objective, and the equations from (2)-(5) they are practically the same,
+  it had to the need of add additional variables.
+  \begin{itemize}
+  \item $u_{ij}$ if the adjuster located between the facility $j$, and node $i$ are less than $\ell$
+  \item $v_{ij}$ if the adjuster located between the facility $j$, and node $i$ are less than $\ell$
+  \end{itemize}
+
+
+  \begin{align}
+    \sum_{r = 1}^{k \mid a_{ik}=j}{x_{a_{ir}}} + (p-\ell) u_{ij} & \leq p & \forall i \in V, j &\in W \\
+    \sum_{r = 1}^{k \mid a_{ik}=j}{x_{a_{ir}}} + M u_{ij} & \geq \ell+1   & \forall i \in V, j &\in W \\
+    \sum_{k = 1}^{\ell}{y_{ij}^{k}} + M (1 - u_{ij}) & \geq x_j           & \forall i \in V, j &\in W
+  \end{align}
+  
+  \begin{align}
+    \sum_{r = 1}^{k \mid a_{i(k+1)}=j}{x_{a_{ir}}} + (p-(\ell-1)) v_{ij} & \leq p                                     & \forall i \in V, j &\in W\\
+    \sum_{r = 1}^{k \mid a_{i(k+1)}=j}{x_{a_{ir}}} + M v_{ij}         & \geq \ell                                     & \forall i \in V, j &\in W\\
+    \sum_{k=1}^{k}{y_{ij}^{k}} + M (1 - v_{ij} + u_{ij}) & \geq \ell - \sum_{r = 1}^{k \mid a_{i(k+1)}=j}{x_{a_{ir}}} & \forall i \in V, j &\in W\\
+    \sum_{k=1}^{k}{y_{ij}^{k}} - M (1 - v_{ij} + u_{ij}) & \leq \ell - \sum_{r = 1}^{k \mid a_{i(k+1)}=j}{x_{a_{ir}}} & \forall i \in V, j &\in W\\
+    y_{ij}^{k} & \leq u_{ij} + v_{ij}  &       \forall i \in V,j &\in W 
+  \end{align}
+  
+  \begin{align*}
+    x_j & \in \{0,1,\ldots,p\}         &               \forall j &\in V \\
+    y_{ij}^{k} & \in \{0,1\}           & \forall i\in V,j\in W,k &\in I \\
+    u_{ij},v_{ij} & \in \{0,1\}        &       \forall i \in V,j &\in W
+  \end{align*}
+
+  inspired by the results of Berman, the variable $x_j$ 
+  was changed to integer variable.
+\end{frame}
