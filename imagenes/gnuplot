@@ -1,0 +1,36 @@
+set term svg
+set key outside
+set xlabel "$\ell/p$"
+set ylabel "time (sec)"
+
+i = 1
+outfile(n) = sprintf("grafica_%02d.svg",n)
+ini = 5
+fin = 24
+
+N = 150
+do for [M = 30:30:10] {
+   half = (fin - fin % 2) / 2 
+   set yrange [*:*]
+   set output outfile(i); i = i+ 1
+   plot for [p = ini:half] 'results' using ($5/$4):($2 == N && $3 == M && $4 == p ? $6 : 1/0) with lines title "p = ".p
+
+   set output outfile(i); i = i + 1
+   plot for [p = half:fin] 'results' using ($5/$4):($2 == N && $3 == M && $4 == p ? $6 : 1/0) with lines title "p = ".p
+   set output outfile(i); i = i + 1
+   set yrange [0:60]
+   replot
+
+   set yrange [*:*]
+   set ylabel "Objective function"
+
+   set output outfile(i); i = i + 1
+   plot for [p = ini:half] 'results' using ($5/$4):($2 == N && $3 == M && $4 == p ? $8 : 1/0) with lines title "p = ".p
+
+   set yrange [500:4000]
+   set output outfile(i); i = i + 1
+   plot for [p = half:fin] 'results' using ($5/$4):($2 == N && $3 == M && $4 == p ? $8 : 1/0) with lines title "p = ".p
+
+   ini = ini + 2
+   fin = fin + 7
+}
