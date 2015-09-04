@@ -1,0 +1,31 @@
+#!/bin/bash
+
+convert grafica_01.svg grafica_01.jpg
+convert grafica_02.svg grafica_02.jpg
+convert grafica_03.svg grafica_03.jpg
+convert grafica_04.svg grafica_04.jpg
+convert grafica_05.svg grafica_05.jpg
+
+for l in {1..9}
+do
+   file=Test_100_30_12_0${l}
+   convert ${file}.svg ${file}.jpg
+done
+
+for l in {10..12}
+do
+   file=Test_100_30_12_${l}
+   convert ${file}.svg ${file}.jpg
+done
+
+for l in {1..9}
+do
+   file=Test_100_30_16_0${l}
+   convert ${file}.svg ${file}.jpg
+done
+
+for l in {10..16}
+do
+   file=Test_100_30_16_${l}
+   convert ${file}.svg ${file}.jpg
+done

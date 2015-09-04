@@ -1,14 +1,14 @@
-set term svg
+set term eps
 set key outside
-set xlabel "$\ell/p$"
+set xlabel "l/p"
 set ylabel "time (sec)"
 
 i = 1
-outfile(n) = sprintf("grafica_%02d.svg",n)
+outfile(n) = sprintf("grafica_%02d.eps",n)
 ini = 5
 fin = 24
 
-N = 150
+N = 100
 do for [M = 30:30:10] {
    half = (fin - fin % 2) / 2 
    set yrange [*:*]
