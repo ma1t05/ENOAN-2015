@@ -4,7 +4,7 @@
 \subsection{Model A}
 
 \begin{frame}
-  This model is based on Goldberg's model, and it contains assignments
+  This model is based on Goldberg's model, and it contains assignment
   variables for all possible orders.
 
   The following assumptions are required in the model:
@@ -27,27 +27,27 @@
 \begin{frame}
   Parameters:
   \begin{itemize}
-  \item $V$ the set of demand points, with $|V| = n$
-  \item $W$ the set of possible site for adjusters/facilities, with $|W| = m$
-  \item $p$ number of response adjusters
-  \item $I$ the set of possible orders $\{1,2\ldots,p\}$
+  \item $V$ set of demand points, with $|V| = n$
+  \item $W$ set of potential site for adjusters/facilities, with $|W| = m$
+  \item $p$ number of available adjusters
+  \item $I$  set of possible orders $\{1,2\ldots,p\}$
   \item $\rho$ is the utilization of each vehicle
   \item $t_{ij}$ is the expected travel time between zone \textit{i} and base \textit{j}.
-  \item $h_{ij}^{k}$ is the probability that $j$ attend client $i$ given that
-    is the kith preferred.
-  \item $S_{ij}$ is $\{r\in W | t_{ir} < t_{ij}\}$
+  \item $h_{ij}^{k}$ is the probability that $j$ serves customer $i$ given that
+    is the $k$-th preferred.
+  \item $S_{ij} = \{r\in W | t_{ir} < t_{ij}\}$
   \end{itemize}
   
   Variables:
   \begin{itemize}
-  \item $x_j 
+  \item $x_j =
     \begin{cases} 
-      1 & \mbox{if there is and adjuster in node } j \\
+      1 & \mbox{if an adjuster is at node } j \\
       0 & \mbox{otherwise}
     \end{cases}$
-  \item $y_{ij}^k 
+  \item $y_{ij}^k =
     \begin{cases} 
-      1 & \mbox{if the adjuster in } j \mbox{, is the k-th to cover the node }i \\
+      1 & \mbox{if adjuster in } j \mbox{, is the k-th to cover customer }i \\
       0 & \mbox{otherwise}
   \end{cases}$
   \end{itemize}
@@ -63,12 +63,12 @@
 {\small
   \begin{align}
     \sum_{j \in W}{x_j} & = p               &                                  &\\
-    \sum_{j \in W}{y_{ij}^{k}} & = 1        &         \forall i \in V, k &\in I \\
-    y_{ij}^{k} & \leq x_j                   & \forall i \in V,j \in W, k &\in I \\
-    \sum_{k = 1}^{p}{y_{ij}^{k}} & \leq x_j &         \forall i \in V, j &\in W \\
-    y_{ij}^{k} &\leq \sum_{r\in S_{ij}}{y_{ir}^{k-1}} & \forall i \in V,j \in W, k &\in I/{1} \\
-    x_{j} & \in \{0,1\}      &                 \forall j &\in W \nonumber\\
-    y_{ij}^{k} & \in \{0,1\} & \forall i \in V,j \in W,k &\in I \nonumber
+    \sum_{j \in W}{y_{ij}^{k}} & = 1        &          i \in V, k &\in I \\
+    y_{ij}^{k} & \leq x_j                   &  i \in V,j \in W, k &\in I \\
+    \sum_{k = 1}^{p}{y_{ij}^{k}} & \leq x_j &          i \in V, j &\in W \\
+    y_{ij}^{k} &\leq \sum_{r\in S_{ij}}{y_{ir}^{k-1}} &  i \in V,j \in W, k &\in I/{1} \\
+    x_{j} & \in \{0,1\}      &                  j &\in W \nonumber\\
+    y_{ij}^{k} & \in \{0,1\} &  i \in V,j \in W,k &\in I \nonumber
   \end{align}
 }
 \end{frame}
