@@ -7,14 +7,14 @@
 \begin{frame}
   This model was developed with the idea that is unlikely that
   the farthest adjusters serve customers on cases where the system does not become congested.
-  In these cases we can make the assumption that the probability of being served by the $\ell$th 
+  In these cases we can make the assumption that the probability of being served by the $\ell$-th 
   adjuster is almost zero, where $\ell$ is large enough but less than $p$.
 
   Parameters:
   \begin{itemize}
   \item $M$ is a large integer.
   \item $\ell$ the number of allowed adjusters per customer
-  \item $a_{ik}$ kth location server regarding the node $i$
+  \item $a_{ik}$ the $k$-th preferred location server regarding the customer $i$
   \end{itemize}
 
   Variables:
@@ -26,7 +26,8 @@
 \end{frame}
 
 \begin{frame}[allowframebreaks]
-  The objective, and the constraints (2)-(5) are practically the same,
+  The objective, and the constraints (2)-(5) 
+  are practically the same as in model A,
   with the difference that binary variables $x_j$ from Model A
   are replaced by integer variables $z_j$ inspired by the results of Berman,
   and the addition of the following binary variables
@@ -35,7 +36,7 @@
     \item $u_{ij} = \begin{cases} 1 & \mbox{if the number of adjusters between } i \mbox{ and } j \mbox{, inclusive, is less than } \ell \\
       0 & \mbox{otherwise}
     \end{cases}$
-    \item $v_{ij} = \begin{cases} 1 & \mbox{if the number of adjusters between } i \mbox{ and } j \mbox{, inclusive, is less than } \ell - 1 \\
+    \item $v_{ij} = \begin{cases} 1 & \mbox{if the number of adjusters between } i \mbox{ and } j \mbox{, is less than } \ell - 1 \\
       0 & \mbox{otherwise}
     \end{cases}$
     \end{itemize}

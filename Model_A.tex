@@ -1,6 +1,7 @@
 % Validating and applying a model for locating emergency medical vehicles in Tucson, AZ
 % Goldberg 1990
 
+\section{Models}
 \subsection{Model A}
 
 \begin{frame}
@@ -74,5 +75,11 @@
 \end{frame}
 
 \begin{frame}
-  This model was tested with instances of size \textit{n} = 30 and \textit{m} = 30
+  This model was tested with a benchmark instance of 30 points, 
+  which sets $V$ and $W$ are the same.
+  For values of $p = 1,\ldots,7$ the optimal solution was found in less than one minute.
+
+  For other instances of benchmark was impossible to find the solution
+  because they have more than 300 points, and model grows to over one million variables.
+%  For some large instances ($n = 50$ , $m = 30$)%
 \end{frame}

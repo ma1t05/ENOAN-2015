@@ -19,21 +19,16 @@
 \usepackage{epstopdf}
 \graphicspath{ {./imagenes/} }
 
-\usepackage{lmodern}    
-\usepackage[labelformat=empty,font=scriptsize,skip=0pt,justification=justified,singlelinecheck=false]{caption}
-
-\setbeamertemplate{bibliography item}{} %remove the icon
-\setbeamertemplate{bibliography entry title}{} %remove line breaks
-\setbeamertemplate{bibliography entry location}{}
-\setbeamertemplate{bibliography entry note}{}
+\setbeamertemplate{bibliography item}[text] %remove the icon
+\setbeamertemplate{frametitle continuation}{}
 
 \title{Models for locating car wreck adjusters}
 \subtitle{ENOAN 2015}
-\author[Luis Maltos, Roger R\'ios]{
+\author[Luis Maltos, Roger R\'ios, Angelica Salazar, M. Gpe. Villarreal]{
   L. A. Maltos-Ortega \inst{1},
   R. Z. R\'ios-Mercado \inst{1},
   M. A. Salazar-Aguilar \inst{1}
-  \and M. G. Villareal Marroquin \inst{1}}
+  \and M. G. Villareal Marroquin \inst{2}}
 
 \institute[PISIS]{
   \inst{1} Posgrado en Ingenier\'ia de Sistemas \\
@@ -55,27 +50,26 @@
   \tableofcontents
 \end{frame}
 
+%%% Introduction %%%
 \include{Introduction}
 
-\section{Models}
+%%% Models %%%
 \include{Model_A}
 \include{Model_B}
 
-%\include{Experimentation}
-\section{Results}
+%%% Results %%%
 \include{Results}
 \include{Conclusions}
-
-%\include{Futre Wortk}
+\include{FutureWork}
 \include{Tanks}
 
-%%%
-\begin{frame}[allowframebreaks] 
+%%% References %%%
+\begin{frame}[allowframebreaks]
   %\setbeamertemplate{bibliography item}{\insertbiblabel}
   \frametitle{References}
-             {\footnotesize
-               \bibliographystyle{apalike}
-               \bibliography{references}
-             }
+  {\scriptsize
+    \bibliographystyle{abbrv}
+    \bibliography{references}
+  }
 \end{frame}
 \end{document}

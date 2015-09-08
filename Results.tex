@@ -1,9 +1,34 @@
 
+\section{Results}
 \subsection{Experimentation}
 \begin{frame}
   
-  Different random instances were created,
-  Some results are shown graphically
+  Different random instances were generated
+  to test the models, and verify that the solution are the same.
+  For $n = 100$ were created 3 instances with $m = 20,30,40$,
+  and different values of $p$, shown in the following table.
+  \begin{table}
+    \centerign
+    \begin{tabular}{|c|c|c|}\hline
+      n & m & p \\ \hline
+      100 & 20 & 5-18 \\
+      100 & 30 & 7-25 \\
+      100 & 40 & 9,10 \\
+      \hline
+    \end{tabular}
+  \end{table}
+  
+  The Model A was solved to optimality for all the values of $p$ when $m = 20$,
+  for the rest of the values of $m$, could not find the optimal solution in less than one hour.
+
+  The Model B was tested with each combination of $n,m,p$ and $\ell$ from $1,\ldots,p$.
+  The results of the time of solution are shown in the following graphics,
+  comparing the relation of $\frac{\ell}{p}$ versus the solution time.
+
+\end{frame}
+
+\begin{frame}
+  Relation of $\frac{\ell}{p}$ versus the solution time.
   \begin{center}
     \includegraphics[scale=0.25]{grafica_01}
     \includegraphics[scale=0.25]{grafica_02}
@@ -12,8 +37,8 @@
 
 \begin{frame}
 
-  The times for some values of \textit{l} in relation with \textit{p} 
-  increase drastically
+  The solution times increase drastically as $\ell$ approximates to $p$
+  
   \begin{center}
     \includegraphics[scale=0.25]{grafica_02}
     \includegraphics[scale=0.25]{grafica_03}
@@ -23,8 +48,9 @@
 
 \begin{frame}
 
-  But the results for small values of \textit{l},
-  they remain in effect for the rest of the instances.
+  For medium values of $p$, the value of the objective function does not change
+  for medium/small to large values of $\ell$, were the optimal solution is obtained.
+
   \begin{center}
     \includegraphics[scale=0.25]{grafica_04}
     \includegraphics[scale=0.25]{grafica_05}
