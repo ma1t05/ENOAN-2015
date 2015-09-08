@@ -1,10 +1,10 @@
-set term eps
+set term svg
 set key outside
 set xlabel "l/p"
-set ylabel "time (sec)"
+set ylabel "solution time (sec)"
 
 i = 1
-outfile(n) = sprintf("grafica_%02d.eps",n)
+outfile(n) = sprintf("grafica_%02d.svg",n)
 ini = 5
 fin = 24
 
