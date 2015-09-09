@@ -8,12 +8,12 @@
   This model is based on Goldberg's model, and it contains assignment
   variables for all possible orders.
 
-  The following assumptions are required in the model:
+  The following assumptions are considered in the model:
   \begin{itemize}
   \item The probability that an adjuster is busy is $\rho$
     and is unaffected by the state of the system
   \item There is a strict ordering of the bases preferred for each zone
-    that does not depend on the current state of the system. 
+    that does not depend on the current state of the system
   \item All calls are answered by an adjuster originating from its base,
     not en route back to the base
   \item The arrival of calls to the system follows a stationary distribution
@@ -29,7 +29,7 @@
   \item $V$ set of demand points, with $|V| = n$
   \item $W$ set of potential site for adjusters/facilities, with $|W| = m$
   \item $p$ number of available adjusters
-  \item $I$  set of possible orders $\{1,2\ldots,p\}$
+  \item $K$  set of possible orders $\{1,2\ldots,p\}$
   \item $\rho$ is the utilization of each vehicle
   \item $t_{ij}$ is the expected travel time between zone \textit{i} and base \textit{j}.
   \item $h_{ij}^{k}$ is the probability that $j$ serves customer $i$ given that
@@ -62,12 +62,12 @@
 {\small
   \begin{align}
     \sum_{j \in W}{x_j} & = p               &                                  &\\
-    \sum_{j \in W}{y_{ij}^{k}} & = 1        &          i \in V, k &\in I \\
-    y_{ij}^{k} & \leq x_j                   &  i \in V,j \in W, k &\in I \\
+    \sum_{j \in W}{y_{ij}^{k}} & = 1        &          i \in V, k &\in K \\
+    y_{ij}^{k} & \leq x_j                   &  i \in V,j \in W, k &\in K \\
     \sum_{k = 1}^{p}{y_{ij}^{k}} & \leq x_j &          i \in V, j &\in W \\
-    y_{ij}^{k} &\leq \sum_{r\in S_{ij}}{y_{ir}^{k-1}} &  i \in V,j \in W, k &\in I/{1} \\
+    y_{ij}^{k} &\leq \sum_{r\in S_{ij}}{y_{ir}^{k-1}} &  i \in V,j \in W, k &\in K/\{1\} \\
     x_{j} & \in \{0,1\}      &                  j &\in W \nonumber\\
-    y_{ij}^{k} & \in \{0,1\} &  i \in V,j \in W,k &\in I \nonumber
+    y_{ij}^{k} & \in \{0,1\} &  i \in V,j \in W,k &\in K \nonumber
   \end{align}
 }
 \end{frame}
@@ -77,7 +77,7 @@
   which sets $V$ and $W$ are the same.
   For values of $p = 1,\ldots,7$ the optimal solution was found in less than one minute.
 
-  For other instances of benchmark was impossible to find the solution
-  because they have more than 300 points, and model grows to over one million variables.
+  For other benchmark instances was impossible to find the solution
+  because they have more than 300 points, and the proposed model grows to over one million variables.
 %  For some large instances ($n = 50$ , $m = 30$)%
 \end{frame}
